@@ -19,7 +19,7 @@ jobs:
           - platform: 2
             platform_name: ios
     
-    runs-on: J316sAP
+    runs-on: macos-latest
     steps:
       - name: Remove work folders
         run: |
@@ -32,6 +32,18 @@ jobs:
           
       - name: Checkout repository
         uses: actions/checkout@main
+
+      - name: Install GNU Make
+        run: brew install make
+
+      - name: Install ldid
+        run: brew install ldid
+
+      - name: Install Java 8 (Zulu)
+        run: |
+          brew install --cask zulu@8
+          echo "JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home" >> $GITHUB_ENV
+          echo "/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/bin" >> $GITHUB_PATH
 
       - name: Checkout repository submodules
         run: git submodule update --init --recursive
