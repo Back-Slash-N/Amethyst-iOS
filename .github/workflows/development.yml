@@ -38,7 +38,7 @@ jobs:
 
       - name: Install Java 8 (Zulu)
         run: |
-          brew install --cask zulu8
+          brew install --cask zulu@8
           echo "JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home" >> $GITHUB_ENV
           echo "/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/bin" >> $GITHUB_PATH
 
