@@ -36,6 +36,9 @@ jobs:
       - name: Install GNU Make
         run: brew install make
 
+      - name: Install ldid
+        run: brew install ldid
+
       - name: Install Java 8 (Zulu)
         run: |
           brew install --cask zulu@8
